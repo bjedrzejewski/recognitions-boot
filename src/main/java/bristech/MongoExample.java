@@ -4,6 +4,9 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.CommandLineRunner;
 import org.springframework.stereotype.Component;
 
+import java.util.ArrayList;
+import java.util.List;
+
 /**
  * Created by bartoszjedrzejewski on 31/10/2016.
  */
@@ -19,8 +22,13 @@ public class MongoExample implements CommandLineRunner {
         repository.deleteAll();
 
         // save a couple of colleagues
-        repository.save(new Colleague("Alice", "Smith"));
-        repository.save(new Colleague("Bob", "Smith"));
+        repository.save(new Colleague("Alice", "Smith", new ArrayList<>()));
+
+        //Create some recognitions
+        List<Recognition> recognitionList = new ArrayList<>();
+        recognitionList.add(new Recognition("Great work on the Spring Boot project!"));
+        recognitionList.add(new Recognition("Always polite and helpful to junior colleagues."));
+        repository.save(new Colleague("Bob", "Smith", recognitionList));
 
         // fetch all colleagues
         System.out.println("Colleagues found with findAll():");
