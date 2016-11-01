@@ -12,24 +12,20 @@ public class Colleague {
     @Id
     public String id;
 
-    public String firstName;
-    public String lastName;
+    public String name;
     public List<Recognition> recognitions;
 
     public Colleague() {}
 
-    public Colleague(String firstName, String lastName, List<Recognition> recognitions) {
-        this.firstName = firstName;
-        this.lastName = lastName;
+    public Colleague(String name, List<Recognition> recognitions) {
+        this.name = name;
         this.recognitions = recognitions;
     }
 
     @Override
     public String toString() {
         return "Colleague{" +
-                "id='" + id + '\'' +
-                ", firstName='" + firstName + '\'' +
-                ", lastName='" + lastName + '\'' +
+                ", name='" + name + '\'' +
                 ", recognitions=" + recognitions +
                 '}';
     }

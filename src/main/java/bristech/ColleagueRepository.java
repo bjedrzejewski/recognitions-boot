@@ -9,7 +9,6 @@ import java.util.List;
  */
 public interface ColleagueRepository extends MongoRepository<Colleague, String> {
 
-    public Colleague findByFirstName(String firstName);
-    public List<Colleague> findByLastName(String lastName);
+    public List<Colleague> findByName(String name);
 
 }

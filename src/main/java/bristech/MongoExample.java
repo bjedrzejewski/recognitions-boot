@@ -22,13 +22,13 @@ public class MongoExample implements CommandLineRunner {
         repository.deleteAll();
 
         // save a couple of colleagues
-        repository.save(new Colleague("Alice", "Smith", new ArrayList<>()));
+        repository.save(new Colleague("Alice", new ArrayList<>()));
 
         //Create some recognitions
         List<Recognition> recognitionList = new ArrayList<>();
         recognitionList.add(new Recognition("Great work on the Spring Boot project!"));
         recognitionList.add(new Recognition("Always polite and helpful to junior colleagues."));
-        repository.save(new Colleague("Bob", "Smith", recognitionList));
+        repository.save(new Colleague("Bob", recognitionList));
 
         // fetch all colleagues
         System.out.println("Colleagues found with findAll():");
@@ -41,11 +41,11 @@ public class MongoExample implements CommandLineRunner {
         // fetch an individual colleague
         System.out.println("Colleague found with findByFirstName('Alice'):");
         System.out.println("--------------------------------");
-        System.out.println(repository.findByFirstName("Alice"));
+        System.out.println(repository.findByName("Alice"));
 
         System.out.println("Colleagues found with findByLastName('Smith'):");
         System.out.println("--------------------------------");
-        for (Colleague colleague : repository.findByLastName("Smith")) {
+        for (Colleague colleague : repository.findByName("Smith")) {
             System.out.println(colleague);
         }
 
