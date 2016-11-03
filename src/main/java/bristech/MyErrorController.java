@@ -13,6 +13,6 @@ public class MyErrorController implements ErrorController {
     @Override
     @RequestMapping("/error")
     public String getErrorPath() {
-        return "Unknown error occured";
+        return "Unknown error occurred";
     }
 }
